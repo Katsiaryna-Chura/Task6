@@ -44,8 +44,8 @@ namespace ConverterTests
             Assert.IsFalse(converter.TryConvertToInt(str, out number));
         }
 
-        [TestCase("2200000000")]
-        [TestCase("-2200000000")]
+        [TestCase("2147483648")]
+        [TestCase("-2147483649")]
         [TestCase("32100000000")]
         [TestCase("-32100000000")]
         public void TryConvertWithOverflowTest(string str)
@@ -81,8 +81,8 @@ namespace ConverterTests
             Assert.Throws<ArgumentNullException>(() => converter.ConvertToInt(null));
         }
 
-        [TestCase("2200000000")]
-        [TestCase("-2200000000")]
+        [TestCase("2147483648")]
+        [TestCase("-2147483649")]
         [TestCase("32100000000")]
         [TestCase("-32100000000")]
         public void ConvertWithOverflowTest(string str)
